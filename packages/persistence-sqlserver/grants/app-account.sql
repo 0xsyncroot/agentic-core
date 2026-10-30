@@ -1,13 +1,11 @@
 -- Database principal and rights for the account the service connects with.
 --
--- The migration tool used to do this itself, which is why migrating needed a second,
--- administrative connection. Run it as a principal that may GRANT, after the tables exist, and
--- replace [agentic_app] with yours. The login must already exist at server level — that is
--- identity management, not ours to create.
+-- Run as a principal that may GRANT, after the tables exist, and replace [agentic_app] with
+-- your application principal. The login must already exist at server level. Keep this account
+-- outside privileged roles and do not make it a schema or object owner.
 --
--- The DENY lines are the point of the file: SQL Server resolves DENY over GRANT, so the service
--- cannot rewrite a recorded event, edit a memory revision, read the migration ledger, or alter
--- the schema, no matter what else it is granted later.
+-- Object DENYs protect append-only history and the migration ledger. Ownership and separately
+-- granted column permissions have special precedence; audit those when changing account rights.
 
 IF DATABASE_PRINCIPAL_ID('agentic_app') IS NULL
   CREATE USER [agentic_app] FOR LOGIN [agentic_app];
@@ -33,5 +31,8 @@ DENY SELECT, INSERT, UPDATE, DELETE ON agentic.schema_migration TO [agentic_app]
 DENY UPDATE, DELETE ON agentic.session_event TO [agentic_app];
 DENY UPDATE, DELETE ON agentic.memory_revision TO [agentic_app];
 DENY DELETE ON agentic.actor_setting TO [agentic_app];
-DENY ALTER, CONTROL, TAKE OWNERSHIP ON SCHEMA::agentic TO [agentic_app];
+-- CONTROL implies data permissions: denying it also blocks the explicit DML grants above.
+-- REVOKE clears a directly applied CONTROL grant or denial when this script is reapplied.
+REVOKE CONTROL ON SCHEMA::agentic FROM [agentic_app];
+DENY ALTER, TAKE OWNERSHIP ON SCHEMA::agentic TO [agentic_app];
 GO

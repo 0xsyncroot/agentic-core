@@ -15,7 +15,7 @@
     "check:test-reach": "node scripts/check-test-reach.mjs",
     "test:postgres": "tsc -b packages/persistence-postgres --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-postgres/test/*.test.ts",
     "test:mysql": "tsc -b packages/persistence-mysql --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-mysql/test/*.test.ts",
-    "test:sqlserver": "tsc -b packages/persistence-sqlserver --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-sqlserver/test/sqlserver.test.ts packages/persistence-sqlserver/test/actor-setting-conformance.test.ts",
+    "test:sqlserver": "tsc -b packages/persistence-sqlserver --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-sqlserver/test/sqlserver.test.ts packages/persistence-sqlserver/test/actor-setting-conformance.test.ts packages/persistence-sqlserver/test/grant-policy.test.ts",
     "harness": "tsc -b apps/harness --pretty false && node --env-file-if-exists=.env apps/harness/dist/main.js",
     "web": "tsc -b apps/web --pretty false && node --env-file-if-exists=.env apps/web/dist/main.js",
     "db:up": "docker compose -f deploy/local/compose.yml up -d --wait",
