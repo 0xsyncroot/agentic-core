@@ -61,7 +61,7 @@ Memory is tenant-scoped, permission-checked and database-first. Canonical record
 
 Judgment adapters return typed probability data through `JudgmentPort`. The runtime has explicit seams for relevance, observation review, work movement and related decisions. Each seam has a configured operating mode; shadow mode records the judgment without letting it change execution
 
-The gateway adapter requires an explicit endpoint and model. System One likewise requires an explicit model and preserves its typed request/probability contract. These identifiers are deployment configuration, not bundled private model aliases. Changing judgment questions, thresholds or live modes requires labeled evaluation with difficult negative cases
+The TypeSafe adapter implements this port with `jev-1.13.0` as its default model. Chat model selection is independent of the judgment provider. Shadow mode applies to core judgment seams; explicit judgment-backed tools such as `rank_candidates` still return their normal results. Changing judgment questions, thresholds or live modes requires labeled evaluation with difficult negative cases
 
 ## Delivery and administration
 
@@ -71,6 +71,6 @@ The gateway adapter requires an explicit endpoint and model. System One likewise
 
 ## Deployment boundaries
 
-Development may use Echo and memory storage. Production requires configured identity, durable storage, encryption, safe admission and an authorized runtime-provider composition. MCP deployments additionally need credential custody, egress policy and appropriate process isolation. The execution service is optional and must be deployed with its own containment controls
+Development may use Echo and memory storage. Production requires configured identity, durable storage, encryption, safe admission and an authorized runtime-provider composition. MCP deployments additionally need credential custody, egress policy and appropriate process isolation. The optional document/file gateway exposes document readers and file transfer; it needs its own authentication and containment controls
 
 The included adapters and tests demonstrate implemented mechanisms. They do not establish capacity, availability, model accuracy or security of a particular deployment. See [verification](../docs/verification.md) for the distinction between offline, service integration and live-model evidence

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="900" viewBox="0 0 1320 900" role="img" aria-labelledby="title description">
+  <title id="title">Agentic Core architecture</title>
+  <desc id="description">A product resolves identity before invoking the agent runtime. The kernel builds context, asks the model, checks tool policy and records results. A harness and plugin host assemble capabilities. Typed adapters connect models, tools, storage and telemetry. Journals support recovery when a durable store is configured. Dashed arrows show configuration; solid arrows show runtime interactions.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#178b80"/></marker>
+    <marker id="config-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#8393a8"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#172c42}
+      .eyebrow{font-size:14px;font-weight:700;letter-spacing:2px;fill:#26766e}
+      .title{font-size:36px;font-weight:700;letter-spacing:-.8px}
+      .heading{font-size:25px;font-weight:700;letter-spacing:-.3px}
+      .body{font-size:19px;fill:#52677d}
+      .small{font-size:17px;fill:#52677d}
+      .group{font-size:14px;font-weight:700;letter-spacing:1.2px;fill:#52677d}
+      .card{fill:#fff;stroke:#d7e1eb;stroke-width:1.5}
+      .flow{fill:none;stroke:#178b80;stroke-width:2.5;marker-end:url(#arrow)}
+      .setup{fill:none;stroke:#8393a8;stroke-width:2;stroke-dasharray:6 5;marker-end:url(#config-arrow)}
+    </style>
+  </defs>
+  <rect width="1320" height="900" rx="24" fill="#f5f8fc"/>
+  <rect x="40" y="38" width="44" height="5" rx="2.5" fill="#178b80"/>
+  <text x="98" y="45" class="eyebrow">AGENTIC CORE / ARCHITECTURE</text>
+  <text x="40" y="99" class="title">From a user request to controlled execution</text>
+  <text x="40" y="131" class="body">The kernel owns execution rules; plugins and adapters supply capabilities</text>
+
+  <!-- Configuration stays outside the request path. -->
+  <rect x="40" y="171" width="270" height="94" rx="14" fill="#edf1f7" stroke="#d7e1eb"/>
+  <text x="62" y="205" font-size="21" font-weight="700">Control API + catalogs</text>
+  <text x="62" y="235" class="small">Optional runtime configuration</text>
+  <path d="M310 218H359" class="setup"/>
+  <rect x="360" y="171" width="520" height="94" rx="14" class="card"/>
+  <text x="384" y="207" class="heading">Harness + plugin host</text>
+  <text x="384" y="237" class="body">Explicit composition · versioned capabilities</text>
+  <rect x="930" y="171" width="350" height="94" rx="14" fill="#edf1f7" stroke="#d7e1eb"/>
+  <text x="954" y="205" font-size="21" font-weight="700">Plugins</text>
+  <text x="954" y="235" class="body">Prompts · skills · tools · providers</text>
+  <path d="M930 218H882" class="setup"/>
+  <path d="M620 265V303" class="setup"/>
+
+  <!-- Product delivery establishes the principal before entering the kernel. -->
+  <rect x="40" y="305" width="270" height="367" rx="18" class="card"/>
+  <text x="64" y="347" class="heading">Your product</text>
+  <rect x="62" y="372" width="226" height="88" rx="10" fill="#f0f5fa"/>
+  <text x="82" y="407" font-size="22" font-weight="700">CLI · Web chat</text>
+  <text x="82" y="437" class="body">Embeddable widget</text>
+  <path d="M175 460V489" class="flow"/>
+  <rect x="62" y="491" width="226" height="116" rx="10" fill="#eaf5f2"/>
+  <text x="80" y="526" font-size="21" font-weight="700">Delivery + identity</text>
+  <text x="80" y="556" class="body">Tenant · actor</text>
+  <text x="80" y="583" class="body">Permissions</text>
+  <text x="64" y="644" class="small">HTTP/SSE events + results</text>
+  <path d="M310 475H358" class="flow"/>
+  <path d="M358 510H312" class="flow"/>
+
+  <!-- The model proposes actions; the kernel authorizes and bounds execution. -->
+  <rect x="360" y="305" width="520" height="367" rx="18" fill="#142d43"/>
+  <text x="388" y="347" class="heading" style="fill:#fff">Agent runtime</text>
+  <text x="388" y="375" class="body" style="fill:#b8d0dd">Execution, security and budgets live in core</text>
+  <path d="M620 613V627H376V422H391" fill="none" stroke="#69cbbb" stroke-width="1.7" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="392" y="399" width="456" height="44" rx="8" fill="#254258"/>
+    <circle cx="416" cy="421" r="13" fill="#61d0bb"/><text x="416" y="427" text-anchor="middle" font-size="16" font-weight="700">1</text>
+    <text x="441" y="429" font-size="22" style="fill:#fff">Build context</text>
+    <path d="M620 443V455" stroke="#89a8bb" stroke-width="2"/>
+    <rect x="392" y="456" width="456" height="44" rx="8" fill="#254258"/>
+    <circle cx="416" cy="478" r="13" fill="#61d0bb"/><text x="416" y="484" text-anchor="middle" font-size="16" font-weight="700">2</text>
+    <text x="441" y="486" font-size="22" style="fill:#fff">Ask the model for a next action</text>
+    <path d="M620 500V512" stroke="#89a8bb" stroke-width="2"/>
+    <rect x="392" y="513" width="456" height="44" rx="8" fill="#254258"/>
+    <circle cx="416" cy="535" r="13" fill="#61d0bb"/><text x="416" y="541" text-anchor="middle" font-size="16" font-weight="700">3</text>
+    <text x="441" y="543" font-size="22" style="fill:#fff">Check policy, then execute tools</text>
+    <path d="M620 557V569" stroke="#89a8bb" stroke-width="2"/>
+    <rect x="392" y="570" width="456" height="44" rx="8" fill="#254258"/>
+    <circle cx="416" cy="592" r="13" fill="#61d0bb"/><text x="416" y="598" text-anchor="middle" font-size="16" font-weight="700">4</text>
+    <text x="441" y="600" font-size="22" style="fill:#fff">Record results · choose next step</text>
+  </g>
+  <text x="620" y="651" text-anchor="middle" font-size="18" style="fill:#d1e6ee">Continue · pause for input · finish</text>
+
+  <!-- Integrations are reached through typed ports, not embedded in the kernel. -->
+  <path d="M880 475H928" class="flow"/>
+  <path d="M928 510H882" class="flow"/>
+  <rect x="930" y="305" width="350" height="367" rx="18" class="card"/>
+  <text x="954" y="347" class="heading">Adapters via typed ports</text>
+  <text x="954" y="385" class="group">MODELS + JUDGMENTS</text>
+  <text x="954" y="416" font-size="22">DeepSeek · OpenAI</text>
+  <text x="954" y="444" class="body">TypeSafe judgments (optional)</text>
+  <path d="M954 463H1256" stroke="#e2e9f0"/>
+  <text x="954" y="492" class="group">TOOLS + PRODUCT SERVICES</text>
+  <text x="954" y="523" font-size="22">MCP · product tools</text>
+  <text x="954" y="551" class="body">HTTP / stdio connectors</text>
+  <path d="M954 570H1256" stroke="#e2e9f0"/>
+  <text x="954" y="599" class="group">DATA + OBSERVABILITY</text>
+  <text x="954" y="628" class="body">SQL / Redis · S3 files</text>
+  <text x="954" y="653" class="body">Telemetry · tracing</text>
+
+  <!-- Journals are logical state; durability depends on the selected storage. -->
+  <path d="M620 672V714" class="flow" marker-start="url(#arrow)"/>
+  <rect x="360" y="716" width="520" height="105" rx="14" fill="#e6f3ee" stroke="#b7d8ca"/>
+  <text x="386" y="751" class="heading">Journal + session state</text>
+  <text x="386" y="782" class="body">Leases · idempotency · recovery</text>
+  <text x="386" y="806" class="small">Persist across restarts with a durable store</text>
+  <path d="M880 768H1105V674" class="flow" marker-start="url(#arrow)"/>
+  <text x="40" y="753" class="group">READ THE DIAGRAM</text>
+  <path d="M42 781H81" class="flow"/><text x="94" y="787" class="small">Runtime interaction</text>
+  <path d="M42 811H81" class="setup"/><text x="94" y="817" class="small">Configuration</text>
+  <text x="930" y="808" class="small">Memory storage is the local default</text>
+  <path d="M40 850H1280" stroke="#d7e1eb"/>
+  <text x="40" y="878" font-size="16" fill="#657b90">Agentic Core · a TypeScript microkernel for product-embedded agents</text>
+</svg>
