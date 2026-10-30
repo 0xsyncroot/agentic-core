@@ -21,9 +21,14 @@ Package exports point to `dist`, so build before running focused tests. A passin
 | `npm run test:mysql` | Isolated MySQL test database |
 | `npm run test:postgres` | Isolated PostgreSQL test database |
 | `npm run test:sqlserver` | Isolated SQL Server test database |
+| `npm run test:s3` | Isolated S3-compatible service and test bucket |
 | `npm run mcp:execution:test` | Execution gateway dependencies |
 
 Execution-image integration is a separate manual profile documented with that service. The test-reachability gate keeps these distinctions explicit; a skipped database test is not proof of that database integration
+
+SQL Server tests use `TEST_SQLSERVER_OWNER_URL` for migrations and `TEST_SQLSERVER_URL` for the restricted application login. Prepare the database and login, run the migrations, then apply [the application grants](../packages/persistence-sqlserver/grants/app-account.sql). Using an administrator for both connections does not verify the permission boundary
+
+S3 tests require `TEST_S3_ENDPOINT`, `TEST_S3_BUCKET`, `TEST_S3_ACCESS_KEY` and `TEST_S3_SECRET_KEY`; `TEST_S3_REGION` and `TEST_S3_PATH_STYLE` are optional. The profile explicitly creates the test bucket if needed and cleans its uniquely prefixed objects. Use a dedicated test bucket and credentials. It covers binary and multipart uploads, metadata, more than 1,000 listing entries, read limits and permission failures
 
 ## Runtime and live-model evidence
 

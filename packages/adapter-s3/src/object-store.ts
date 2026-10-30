@@ -1,6 +1,8 @@
 import { Readable } from "node:stream";
 import { readSetting, type SettingLog, type SettingsEnv } from "@0xsyncroot/env-settings";
-import { Client } from "minio";
+import { CreateBucketCommand, DeleteObjectCommand, GetObjectCommand, HeadBucketCommand, HeadObjectCommand,
+  ListObjectsV2Command, PutObjectCommand, S3Client, type BucketLocationConstraint } from "@aws-sdk/client-s3";
+import { Upload } from "@aws-sdk/lib-storage";
 
 /** S3-compatible byte storage. Callers own content validation, authorization and key-prefix policy; the adapter preserves bytes and declared content types. */
 export interface S3Config {
@@ -99,15 +101,15 @@ export function s3Config(env: SettingsEnv, requested = S3_ENV_PREFIX, options: S
 }
 
 export class S3ObjectStore {
-  readonly #client: Client;
+  readonly #client: S3Client;
   readonly #bucket: string;
   readonly #region: string;
 
   constructor(config: S3Config) {
-    this.#client = new Client({
-      endPoint: config.endPoint, useSSL: config.useSSL, accessKey: config.accessKey, secretKey: config.secretKey,
-      region: config.region, pathStyle: config.pathStyle,
-      ...(config.port !== undefined ? { port: config.port } : {}),
+    this.#client = new S3Client({
+      endpoint: `${config.useSSL ? "https" : "http"}://${config.endPoint}${config.port === undefined ? "" : `:${config.port}`}`,
+      credentials: { accessKeyId: config.accessKey, secretAccessKey: config.secretKey },
+      region: config.region, forcePathStyle: config.pathStyle,
     });
     this.#bucket = config.bucket;
     this.#region = config.region;
@@ -117,37 +119,66 @@ export class S3ObjectStore {
 
   /** Create the bucket only at an operator's explicit request. Ordinary writes must not silently create a misspelled destination or require administrative permissions. */
   async ensureBucket(): Promise<void> {
-    if (await this.#client.bucketExists(this.#bucket)) return;
-    await this.#client.makeBucket(this.#bucket, this.#region);
+    try {
+      await this.#client.send(new HeadBucketCommand({ Bucket: this.#bucket }));
+      return;
+    } catch (error) {
+      if ((error as { $metadata?: { httpStatusCode?: number } }).$metadata?.httpStatusCode !== 404) throw error;
+    }
+    try {
+      await this.#client.send(new CreateBucketCommand({ Bucket: this.#bucket,
+        ...(this.#region === "us-east-1" ? {} : { CreateBucketConfiguration: { LocationConstraint: this.#region as BucketLocationConstraint } }),
+      }));
+    } catch (error) {
+      // A concurrent explicit provisioning request may have created our bucket first.
+      if ((error as { name?: string }).name !== "BucketAlreadyOwnedByYou") throw error;
+    }
   }
 
   /** List objects beneath a prefix in deterministic key order. */
   async list(prefix = ""): Promise<readonly S3ObjectInfo[]> {
     const found: S3ObjectInfo[] = [];
-    for await (const item of this.#client.listObjectsV2(this.#bucket, prefix, true)) {
-      const entry = item as { name?: string; size?: number; lastModified?: Date; etag?: string };
-      if (!entry.name) continue;
-      found.push({
-        key: entry.name, size: entry.size ?? 0,
-        ...(entry.lastModified ? { lastModified: entry.lastModified } : {}),
-        ...(entry.etag ? { etag: entry.etag } : {}),
-      });
-    }
+    let continuationToken: string | undefined;
+    const seen = new Set<string>();
+    do {
+      const page = await this.#client.send(new ListObjectsV2Command({ Bucket: this.#bucket, Prefix: prefix,
+        ...(continuationToken ? { ContinuationToken: continuationToken } : {}),
+      }));
+      for (const entry of page.Contents ?? []) {
+        if (!entry.Key) continue;
+        found.push({ key: entry.Key, size: entry.Size ?? 0,
+          ...(entry.LastModified ? { lastModified: entry.LastModified } : {}),
+          ...(entry.ETag ? { etag: entry.ETag.replace(/^"|"$/gu, "") } : {}),
+        });
+      }
+      if (!page.IsTruncated) break;
+      continuationToken = page.NextContinuationToken;
+      if (!continuationToken || seen.has(continuationToken)) throw new Error("S3 listing returned an invalid continuation token");
+      seen.add(continuationToken);
+    } while (continuationToken);
     return found.sort((left, right) => left.key.localeCompare(right.key));
   }
 
   /** Return original object bytes, enforcing maxBytes while reading rather than after buffering the entire object. */
   async get(key: string, maxBytes = 25 * 1024 * 1024): Promise<Buffer> {
-    const stream = await this.#client.getObject(this.#bucket, key);
+    if (!Number.isSafeInteger(maxBytes) || maxBytes < 0) throw new RangeError("maxBytes must be a non-negative safe integer");
+    const response = await this.#client.send(new GetObjectCommand({ Bucket: this.#bucket, Key: key }));
+    const stream = response.Body;
+    if (!(stream instanceof Readable)) throw new Error("S3 returned no readable object body");
     const chunks: Buffer[] = [];
     let total = 0;
-    for await (const chunk of stream) {
-      const buffer = Buffer.from(chunk);
-      total += buffer.length;
-      if (total > maxBytes) throw new Error(`Object ${key} exceeds ${maxBytes} bytes`);
-      chunks.push(buffer);
+    try {
+      if (response.ContentLength !== undefined && response.ContentLength > maxBytes) throw new Error(`Object ${key} exceeds ${maxBytes} bytes`);
+      for await (const chunk of stream) {
+        const buffer = Buffer.from(chunk);
+        total += buffer.length;
+        if (total > maxBytes) throw new Error(`Object ${key} exceeds ${maxBytes} bytes`);
+        chunks.push(buffer);
+      }
+      return Buffer.concat(chunks);
+    } finally {
+      stream.destroy();
     }
-    return Buffer.concat(chunks);
   }
 
   async getText(key: string, maxBytes?: number): Promise<string> {
@@ -155,10 +186,17 @@ export class S3ObjectStore {
   }
 
   async put(key: string, body: Buffer | Readable, options: PutObjectOptions = {}): Promise<void> {
-    const headers: Record<string, string> = { ...(options.metadata ?? {}) };
-    if (options.contentType) headers["Content-Type"] = options.contentType;
-    const size = Buffer.isBuffer(body) ? body.length : undefined;
-    await this.#client.putObject(this.#bucket, key, body, size, headers);
+    const params = { Bucket: this.#bucket, Key: key, Body: body,
+      ...(options.contentType ? { ContentType: options.contentType } : {}),
+      ...(options.metadata ? { Metadata: Object.fromEntries(Object.entries(options.metadata)
+        .map(([name, value]) => [name.toLowerCase().replace(/^x-amz-meta-/u, ""), value])) } : {}),
+    };
+    if (Buffer.isBuffer(body)) {
+      await this.#client.send(new PutObjectCommand(params));
+      return;
+    }
+    // Unknown-length streams use bounded multipart buffering; failed uploads clean up their parts.
+    await new Upload({ client: this.#client, params, queueSize: 2, partSize: 5 * 1024 * 1024, leavePartsOnError: false }).done();
   }
 
   /**
@@ -168,23 +206,20 @@ export class S3ObjectStore {
    */
   async stat(key: string): Promise<S3ObjectStat | undefined> {
     try {
-      const info = await this.#client.statObject(this.#bucket, key);
+      const info = await this.#client.send(new HeadObjectCommand({ Bucket: this.#bucket, Key: key }));
       const metadata: Record<string, string> = {};
-      let contentType: string | undefined;
-      for (const [name, value] of Object.entries(info.metaData ?? {})) {
-        const lower = name.toLowerCase();
-        if (lower === "content-type") contentType = String(value);
-        else metadata[lower.replace(/^x-amz-meta-/u, "")] = String(value);
+      for (const [name, value] of Object.entries(info.Metadata ?? {})) {
+        metadata[name.toLowerCase().replace(/^x-amz-meta-/u, "")] = String(value);
       }
-      return { size: info.size, ...(contentType ? { contentType } : {}), metadata };
+      return { size: info.ContentLength ?? 0, ...(info.ContentType ? { contentType: info.ContentType } : {}), metadata };
     } catch (error) {
-      const code = (error as { code?: string }).code;
+      const code = (error as { name?: string }).name;
       if (code === "NotFound" || code === "NoSuchKey") return undefined;
       throw error;
     }
   }
 
   async remove(key: string): Promise<void> {
-    await this.#client.removeObject(this.#bucket, key);
+    await this.#client.send(new DeleteObjectCommand({ Bucket: this.#bucket, Key: key }));
   }
 }

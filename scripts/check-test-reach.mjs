@@ -20,6 +20,7 @@ const SKIPPED = new Set([...SKIPPED_DIRECTORIES, ".claude", "dist-package", "art
 // Scripts that may reach test files `npm test` must not run, each for an external need. A profile is
 // checked only while its root directory exists: a one-product archive drops the roots it does not carry.
 const PROFILES = [
+  { script: "test:s3", root: "packages/adapter-s3", need: "an isolated S3-compatible service (TEST_S3_*)" },
   { script: "test:mysql", root: "packages/persistence-mysql", need: "a MySQL server" },
   { script: "test:postgres", root: "packages/persistence-postgres", need: "a PostgreSQL server (TEST_DATABASE_URL)" },
   { script: "test:sqlserver", root: "packages/persistence-sqlserver", need: "a SQL Server instance" },

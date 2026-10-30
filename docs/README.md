@@ -11,5 +11,6 @@
 - [ADR 0002](adr/0002-multi-tenant-memory.md): database-first tenant-scoped memory
 - [ADR 0003](adr/0003-durable-human-interaction.md): durable interruption at the tool boundary
 - [ADR 0004](adr/0004-admin-plane.md): administration outside the agent API
+- [ADR 0005](adr/0005-s3-client.md): S3 transport and streaming ownership
 
 The source and executable contracts describe implemented behavior. Historical incident reports and product deployment instructions are intentionally outside this public distribution
