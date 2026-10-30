@@ -45,6 +45,7 @@ const ALLOWED_ENV = /(^|\/)\.env(\.[A-Za-z0-9_-]+)?\.example$/u;
 
 /** Shapes that are a credential and nothing else, so a match is a finding rather than a guess. */
 const SECRET_CONTENT = [
+  { name: "TypeSafe API key", pattern: /\bapikey_[A-Za-z0-9]{20,}_[A-Za-z0-9]{32,}\b/u },
   { name: "private key block", pattern: /-----BEGIN (?:RSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/u },
   { name: "AWS access key id", pattern: /\bAKIA[0-9A-Z]{16}\b/u },
   { name: "Slack token", pattern: /\bxox[baprs]-[0-9A-Za-z-]{10,}/u },
@@ -99,7 +100,7 @@ async function auditSecrets(files) {
     if (source.includes("\u0000")) continue;
     for (const { name, pattern } of SECRET_CONTENT) {
       const match = pattern.exec(source);
-      if (match) findings.push(`${file}: looks like a ${name} (${match[0].slice(0, 12)}…)`);
+      if (match) findings.push(`${file}: looks like a ${name}`);
     }
   }
   return findings;
