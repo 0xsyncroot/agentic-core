@@ -1,0 +1,21 @@
+# Configure the endpoint and connector policy for the consuming application
+# so existing skill tool ids keep working; adjust the host and the S3 prefix per product.
+servers:
+  - id: office-docs
+    transport: http
+    endpoint: http://document-readers:8080/mcp
+    attachmentStorage:            # the archive both sides use: the backend writes it, the reader reads it
+      s3EnvPrefix: S3                # the shared S3_* settings (retired: AGENTIC_KNOWLEDGE_S3_*)
+      keyPrefix: agentic-attachments/
+    allowInsecureInternal: true
+    authMode: service
+    tokenEnv: DOCUMENT_READERS_TOKEN
+    failureMode: fail
+    timeoutMs: 75000
+    resources:
+      allowedSchemes: [document]
+    riskOverrides:
+      read_document: none
+      read_table: none
+      read_cells: none
+      read_resource: none

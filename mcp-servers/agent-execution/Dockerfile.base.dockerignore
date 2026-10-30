@@ -1,0 +1,7 @@
+**
+!mcp-servers/
+!mcp-servers/agent-execution/
+!mcp-servers/agent-execution/requirements.txt
+!mcp-servers/agent-execution/runtime-js/
+!mcp-servers/agent-execution/runtime-js/package.json
+!mcp-servers/agent-execution/runtime-js/package-lock.json

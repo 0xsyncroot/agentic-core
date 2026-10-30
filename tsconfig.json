@@ -1,0 +1,95 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/env-settings"
+    },
+    {
+      "path": "packages/contracts"
+    },
+    {
+      "path": "packages/plugin-sdk"
+    },
+    {
+      "path": "packages/agent-api"
+    },
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/adapter-echo"
+    },
+    {
+      "path": "packages/adapter-deepseek"
+    },
+    {
+      "path": "packages/adapter-openai"
+    },
+    {
+      "path": "packages/adapter-mcp"
+    },
+    {
+      "path": "packages/adapter-agent-profile-markdown"
+    },
+    {
+      "path": "packages/adapter-skills-markdown"
+    },
+    {
+      "path": "packages/adapter-tool-broker-http"
+    },
+    {
+      "path": "packages/adapter-crypto-node"
+    },
+    {
+      "path": "packages/adapter-admission-redis"
+    },
+    {
+      "path": "packages/adapter-telemetry-elk"
+    },
+    {
+      "path": "packages/adapter-tracing-langfuse"
+    },
+    {
+      "path": "packages/adapter-gemini-speech"
+    },
+    {
+      "path": "packages/adapter-typesafe"
+    },
+    {
+      "path": "packages/adapter-calculation-quickjs"
+    },
+    {
+      "path": "packages/plugins-base"
+    },
+    {
+      "path": "packages/persistence-memory"
+    },
+    {
+      "path": "packages/persistence-mysql"
+    },
+    {
+      "path": "packages/redis-connection"
+    },
+    {
+      "path": "packages/persistence-redis"
+    },
+    {
+      "path": "packages/persistence-postgres"
+    },
+    {
+      "path": "packages/persistence-sqlserver"
+    },
+    {
+      "path": "apps/harness"
+    },
+    {
+      "path": "apps/web"
+    },
+    {
+      "path": "apps/widget"
+    },
+    {
+      "path": "packages/control-api"
+    }
+  ]
+}

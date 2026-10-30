@@ -1,0 +1,1214 @@
+[
+  {
+    "run": "fixture-01",
+    "callId": "call_fixture_01",
+    "arguments": "{\"goal\":\"Synthetic task 001\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 002\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 003\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 004\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "a5a5e5c3-df00-5af1-900e-794d68058c41",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 001",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 005"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 006"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 007"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 004"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-02",
+    "callId": "call_fixture_02",
+    "arguments": "{\"goal\":\"Synthetic task 001\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 008\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 009\",\"status\":\"completed\"},{\"description\":\"Synthetic task 010\",\"id\":\"step_3\",\"status\":\"in_progress\"}]}",
+    "storedPlan": {
+      "planId": "a5a5e5c3-df00-5af1-900e-794d68058c41",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 001",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 005"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 006"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 007"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 004"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-03",
+    "callId": "call_fixture_03",
+    "arguments": "{\"goal\":\"Synthetic task 011\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 012\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 013\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 014\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "a738d217-1961-5cff-ab50-86b0a6ef0300",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 011",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 015"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 013"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 014"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-04",
+    "callId": "call_fixture_04",
+    "arguments": "{\"goal\":\"Synthetic task 011\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 012\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 016\",\"status\":\"completed\"},{\"description\":\"Synthetic task 017\",\"id\":\"step_3\",\"status\":\"in_progress\"}]}",
+    "storedPlan": {
+      "planId": "a738d217-1961-5cff-ab50-86b0a6ef0300",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 011",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 015"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 013"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 014"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-05",
+    "callId": "call_fixture_05",
+    "arguments": "{\"goal\":\"Synthetic task 001\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 018\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 019\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 020\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "815d1077-f024-571f-b421-043975273f3b",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 001",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 021"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 022"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 020"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-06",
+    "callId": "call_fixture_06",
+    "arguments": "{\"goal\":\"Synthetic task 001\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 018\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 023\",\"status\":\"completed\"},{\"description\":\"Synthetic task 010\",\"id\":\"step_3\",\"status\":\"in_progress\"}]}",
+    "storedPlan": {
+      "planId": "815d1077-f024-571f-b421-043975273f3b",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 001",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 021"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 022"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 020"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-07",
+    "callId": "call_fixture_07",
+    "arguments": "{\"goal\":\"Synthetic task 024\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 025\",\"status\":\"completed\"},{\"description\":\"Synthetic task 026\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 027\",\"status\":\"pending\"},{\"description\":\"Synthetic task 028\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "b24bac91-20c6-57dc-9563-6f9232921ff9",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 024",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 029"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 026"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 027"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 028"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-08",
+    "callId": "call_fixture_08",
+    "arguments": "{\"goal\":\"Synthetic task 030\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 031\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 032\",\"status\":\"completed\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 033\",\"status\":\"in_progress\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 034\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 035\",\"status\":\"pending\"},{\"id\":\"step_6\",\"description\":\"Synthetic task 036\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "04df7492-cf48-54de-bd9b-58c29c705a29",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 030",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 021"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 037"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 038"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 034"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 035"
+        },
+        {
+          "id": "step_6",
+          "status": "pending",
+          "description": "Synthetic task 036"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-09",
+    "callId": "call_fixture_09",
+    "arguments": "{\"goal\":\"Synthetic task 030\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 039\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 040\",\"status\":\"completed\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 041\",\"status\":\"in_progress\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 042\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 035\",\"status\":\"pending\"},{\"id\":\"step_6\",\"description\":\"Synthetic task 043\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "034522c1-9560-5856-8d4a-fc663878e6a8",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 030",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 044"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 045"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 046"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 042"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 035"
+        },
+        {
+          "id": "step_6",
+          "status": "pending",
+          "description": "Synthetic task 043"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-10",
+    "callId": "call_fixture_10",
+    "arguments": "{\"goal\":\"Synthetic task 047\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 048\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 049\",\"status\":\"completed\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 050\",\"status\":\"in_progress\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 051\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 052\",\"status\":\"pending\"},{\"id\":\"step_6\",\"description\":\"Synthetic task 053\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "42f1828f-eac2-539c-aa26-3421e1cb1f33",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 047",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 054"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 045"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 050"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 051"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 052"
+        },
+        {
+          "id": "step_6",
+          "status": "pending",
+          "description": "Synthetic task 053"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-11",
+    "callId": "call_fixture_11",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 056\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 029\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 057\",\"status\":\"pending\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 058\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "519407b7-21f5-57c7-9b7a-49a63bc0629c",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 059"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 060"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 058"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-12",
+    "callId": "call_fixture_12",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 056\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 061\",\"status\":\"completed\"},{\"description\":\"Synthetic task 062\",\"id\":\"step_3\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 057\",\"id\":\"step_4\",\"status\":\"pending\"},{\"description\":\"Synthetic task 058\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "519407b7-21f5-57c7-9b7a-49a63bc0629c",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 059"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 060"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 058"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-13",
+    "callId": "call_fixture_13",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 056\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 061\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 063\",\"status\":\"completed\"},{\"description\":\"Synthetic task 057\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 058\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "519407b7-21f5-57c7-9b7a-49a63bc0629c",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 059"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 060"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 058"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-14",
+    "callId": "call_fixture_14",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 064\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 065\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 066\",\"status\":\"pending\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 067\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 068\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "e7bc8491-6150-525b-89e4-4ed0ca5b270e",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 044"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 066"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 067"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 068"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-15",
+    "callId": "call_fixture_15",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 064\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 069\",\"status\":\"completed\"},{\"description\":\"Synthetic task 066\",\"id\":\"step_3\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 067\",\"id\":\"step_4\",\"status\":\"pending\"},{\"description\":\"Synthetic task 068\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "e7bc8491-6150-525b-89e4-4ed0ca5b270e",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 044"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 066"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 067"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 068"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-16",
+    "callId": "call_fixture_16",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 064\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 069\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 063\",\"status\":\"completed\"},{\"description\":\"Synthetic task 067\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 068\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "e7bc8491-6150-525b-89e4-4ed0ca5b270e",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 044"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 066"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 067"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 068"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-17",
+    "callId": "call_fixture_17",
+    "arguments": "{\"goal\":\"Synthetic task 070\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 071\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 072\",\"status\":\"completed\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 073\",\"status\":\"in_progress\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 017\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 074\",\"status\":\"pending\"},{\"id\":\"step_6\",\"description\":\"Synthetic task 075\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "54ceb73a-8f57-5640-901d-d42d67a39bbe",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 070",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 076"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 077"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 073"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 017"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 074"
+        },
+        {
+          "id": "step_6",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-18",
+    "callId": "call_fixture_18",
+    "arguments": "{\"goal\":\"Synthetic task 070\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 071\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 072\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 078\",\"status\":\"completed\"},{\"description\":\"Synthetic task 017\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 074\",\"id\":\"step_5\",\"status\":\"pending\"},{\"description\":\"Synthetic task 075\",\"id\":\"step_6\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "54ceb73a-8f57-5640-901d-d42d67a39bbe",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 070",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 076"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 077"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 073"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 017"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 074"
+        },
+        {
+          "id": "step_6",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-19",
+    "callId": "call_fixture_19",
+    "arguments": "{\"goal\":\"Synthetic task 070\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 071\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 072\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 078\",\"status\":\"completed\"},{\"id\":\"step_4\",\"outcome\":\"Synthetic task 079\",\"status\":\"completed\"},{\"id\":\"step_5\",\"outcome\":\"Synthetic task 080\",\"status\":\"completed\"},{\"description\":\"Synthetic task 074\",\"id\":\"step_6\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 075\",\"id\":\"step_7\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "54ceb73a-8f57-5640-901d-d42d67a39bbe",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 070",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 076"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 077"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 073"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 017"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 074"
+        },
+        {
+          "id": "step_6",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-20",
+    "callId": "call_fixture_20",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 081\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 082\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 083\",\"status\":\"pending\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 035\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 075\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "9ea10684-6cd6-582d-b074-a7ca8d31da6f",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 084"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 085"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 035"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-21",
+    "callId": "call_fixture_21",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 081\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 086\",\"status\":\"completed\"},{\"description\":\"Synthetic task 083\",\"id\":\"step_3\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 035\",\"id\":\"step_4\",\"status\":\"pending\"},{\"description\":\"Synthetic task 075\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "9ea10684-6cd6-582d-b074-a7ca8d31da6f",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 084"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 085"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 035"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-22",
+    "callId": "call_fixture_22",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 081\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 086\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 087\",\"status\":\"completed\"},{\"description\":\"Synthetic task 035\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 075\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "9ea10684-6cd6-582d-b074-a7ca8d31da6f",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 084"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 085"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 035"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-23",
+    "callId": "call_fixture_23",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 088\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 089\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 026\",\"status\":\"pending\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 067\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 036\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "051422d4-f402-536f-a59e-c0a022c88411",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 021"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 089"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 026"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 067"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 036"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-24",
+    "callId": "call_fixture_24",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 088\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 090\",\"status\":\"completed\"},{\"description\":\"Synthetic task 026\",\"id\":\"step_3\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 067\",\"id\":\"step_4\",\"status\":\"pending\"},{\"description\":\"Synthetic task 036\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "051422d4-f402-536f-a59e-c0a022c88411",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 021"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 089"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 026"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 067"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 036"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-25",
+    "callId": "call_fixture_25",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 088\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 090\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 087\",\"status\":\"completed\"},{\"description\":\"Synthetic task 067\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 036\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "051422d4-f402-536f-a59e-c0a022c88411",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 021"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 089"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 026"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 067"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 036"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-26",
+    "callId": "call_fixture_26",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 091\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 065\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 092\",\"status\":\"pending\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 093\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 068\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "4e603e86-51ab-5afa-b66f-00dfe12f7c9c",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 094"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 092"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 093"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 068"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-27",
+    "callId": "call_fixture_27",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 091\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 095\",\"status\":\"completed\"},{\"description\":\"Synthetic task 092\",\"id\":\"step_3\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 093\",\"id\":\"step_4\",\"status\":\"pending\"},{\"description\":\"Synthetic task 068\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "4e603e86-51ab-5afa-b66f-00dfe12f7c9c",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 094"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 092"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 093"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 068"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-28",
+    "callId": "call_fixture_28",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 091\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 095\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 087\",\"status\":\"completed\"},{\"description\":\"Synthetic task 093\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 068\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "4e603e86-51ab-5afa-b66f-00dfe12f7c9c",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 094"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 092"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 093"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 068"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-29",
+    "callId": "call_fixture_29",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 096\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 065\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 097\",\"status\":\"pending\"},{\"id\":\"step_4\",\"description\":\"Synthetic task 074\",\"status\":\"pending\"},{\"id\":\"step_5\",\"description\":\"Synthetic task 075\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "5681aced-aa25-51c3-80b7-9540a1b795ad",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 098"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 097"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 074"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-30",
+    "callId": "call_fixture_30",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 096\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 099\",\"status\":\"completed\"},{\"description\":\"Synthetic task 097\",\"id\":\"step_3\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 074\",\"id\":\"step_4\",\"status\":\"pending\"},{\"description\":\"Synthetic task 075\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "5681aced-aa25-51c3-80b7-9540a1b795ad",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 098"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 097"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 074"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-31",
+    "callId": "call_fixture_31",
+    "arguments": "{\"goal\":\"Synthetic task 055\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 096\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 099\",\"status\":\"completed\"},{\"id\":\"step_3\",\"outcome\":\"Synthetic task 063\",\"status\":\"completed\"},{\"description\":\"Synthetic task 074\",\"id\":\"step_4\",\"status\":\"in_progress\"},{\"description\":\"Synthetic task 075\",\"id\":\"step_5\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "5681aced-aa25-51c3-80b7-9540a1b795ad",
+      "revision": 2,
+      "state": "awaiting_user",
+      "goal": "Synthetic task 055",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 098"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 065"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 097"
+        },
+        {
+          "id": "step_4",
+          "status": "pending",
+          "description": "Synthetic task 074"
+        },
+        {
+          "id": "step_5",
+          "status": "pending",
+          "description": "Synthetic task 075"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-32",
+    "callId": "call_fixture_32",
+    "arguments": "{\"goal\":\"Synthetic task 001\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 100\",\"status\":\"completed\"},{\"id\":\"step_2\",\"description\":\"Synthetic task 101\",\"status\":\"in_progress\"},{\"id\":\"step_3\",\"description\":\"Synthetic task 102\",\"status\":\"pending\"}]}",
+    "storedPlan": {
+      "planId": "ebb62dba-203b-531e-9c3c-74d03448a3c1",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 001",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 005"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 013"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 103"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "run": "fixture-33",
+    "callId": "call_fixture_33",
+    "arguments": "{\"goal\":\"Synthetic task 001\",\"steps\":[{\"id\":\"step_1\",\"outcome\":\"Synthetic task 100\",\"status\":\"completed\"},{\"id\":\"step_2\",\"outcome\":\"Synthetic task 104\",\"status\":\"completed\"},{\"description\":\"Synthetic task 105\",\"id\":\"step_3\",\"status\":\"in_progress\"}]}",
+    "storedPlan": {
+      "planId": "ebb62dba-203b-531e-9c3c-74d03448a3c1",
+      "revision": 1,
+      "state": "active",
+      "goal": "Synthetic task 001",
+      "steps": [
+        {
+          "id": "step_1",
+          "status": "in_progress",
+          "description": "Synthetic task 005"
+        },
+        {
+          "id": "step_2",
+          "status": "pending",
+          "description": "Synthetic task 013"
+        },
+        {
+          "id": "step_3",
+          "status": "pending",
+          "description": "Synthetic task 103"
+        }
+      ],
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  }
+]

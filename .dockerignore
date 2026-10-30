@@ -1,0 +1,11 @@
+.git
+**/node_modules
+**/dist
+dist-package
+**/.env
+**/.env.*
+**/__pycache__
+**/*.pyc
+**/*.log
+**/*.tsbuildinfo
+.local

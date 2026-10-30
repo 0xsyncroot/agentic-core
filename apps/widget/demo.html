@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentic Core — Embedded chat</title>
+  <link rel="stylesheet" href="./demo.css">
+  <script src="./dist/agentic-chat-widget.js" defer></script>
+  <script src="./demo.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Embedded agent chat</h1>
+    <p>A simple host page using the same agent runtime as the CLI and web chat</p>
+    <p>Try a calculation, continue from its result, or ask the assistant to read the runtime's UTC clock</p>
+    <div id="harness-status" class="status" role="status">Connecting…</div>
+    <div class="demo-actions" aria-label="Chat controls">
+      <button id="open-chat" type="button">Open chat</button>
+      <button id="toggle-chat" type="button">Toggle chat</button>
+      <button id="close-chat" type="button">Close chat</button>
+    </div>
+    <div class="config">
+      Backend: <code id="api-url"></code><br>
+      Demo: <a id="harness-demo-url" href="http://127.0.0.1:3400/widget-demo/">Open widget demo</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "@0xsyncroot/adapter-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@0xsyncroot/contracts": "0.1.0",
+    "@0xsyncroot/plugin-sdk": "0.1.0",
+    "@modelcontextprotocol/client": "^2.0.0"
+  }
+}

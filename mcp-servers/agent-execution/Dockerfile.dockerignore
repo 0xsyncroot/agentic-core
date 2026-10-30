@@ -1,0 +1,11 @@
+**
+!mcp-servers/
+!mcp-servers/document-readers/
+!mcp-servers/document-readers/*.py
+!mcp-servers/agent-execution/
+!mcp-servers/agent-execution/*.py
+!mcp-servers/agent-execution/requirements.txt
+!mcp-servers/agent-execution/http/
+!mcp-servers/agent-execution/http/*.mjs
+!mcp-servers/agent-execution/http/package.json
+!mcp-servers/agent-execution/http/package-lock.json

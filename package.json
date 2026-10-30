@@ -1,0 +1,51 @@
+{
+  "name": "agentic-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "packages/*/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:env": "node scripts/check-env.mjs",
+    "check:test-reach": "node scripts/check-test-reach.mjs",
+    "test:postgres": "tsc -b packages/persistence-postgres --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-postgres/test/*.test.ts",
+    "test:mysql": "tsc -b packages/persistence-mysql --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-mysql/test/*.test.ts",
+    "test:sqlserver": "tsc -b packages/persistence-sqlserver --pretty false && node --env-file-if-exists=.env --import tsx --test --test-concurrency=1 packages/persistence-sqlserver/test/sqlserver.test.ts packages/persistence-sqlserver/test/actor-setting-conformance.test.ts",
+    "harness": "tsc -b apps/harness --pretty false && node --env-file-if-exists=.env apps/harness/dist/main.js",
+    "web": "tsc -b apps/web --pretty false && node --env-file-if-exists=.env apps/web/dist/main.js",
+    "db:up": "docker compose -f deploy/local/compose.yml up -d --wait",
+    "db:down": "docker compose -f deploy/local/compose.yml down",
+    "mcp:execution:base": "docker build -f mcp-servers/agent-execution/Dockerfile.base -t agent-execution-base:node22-python311-v1 .",
+    "mcp:execution:base:export": "node scripts/build-execution-base.mjs",
+    "mcp:execution:install": "npm ci --prefix mcp-servers/agent-execution/http --ignore-scripts --no-audit --no-fund",
+    "mcp:documents:test": "node --test mcp-servers/document-readers/test/http.test.mjs",
+    "mcp:execution:test": "node scripts/run-python.mjs -- mcp-servers/agent-execution/selftest_broker.py && cd mcp-servers/agent-execution/http && node --test ../test/gateway.test.mjs",
+    "mcp:execution": "node --env-file-if-exists=.env mcp-servers/agent-execution/http/local.mjs",
+    "db:migrate": "tsc -b packages/persistence-postgres --pretty false && node --env-file-if-exists=.env packages/persistence-postgres/dist/migrate-cli.js",
+    "db:migrate:mysql": "tsc -b packages/persistence-mysql --pretty false && node --env-file-if-exists=.env packages/persistence-mysql/dist/migrate-cli.js",
+    "db:migrate:sqlserver": "tsc -b packages/persistence-sqlserver --pretty false && node --env-file-if-exists=.env packages/persistence-sqlserver/dist/migrate-cli.js",
+    "build": "tsc -b && npm --workspace @0xsyncroot/chat-widget run bundle --silent",
+    "check": "npm run check:architecture && npm run check:docs && npm run check:env && npm run check:test-reach && tsc -b --pretty false",
+    "clean": "tsc -b --clean",
+    "test:shared": "node --import tsx packages/plugins-base/test/agentic-base.test.ts && node --import tsx --test packages/plugins-base/test/plan-tool.test.ts packages/plugins-base/test/skill-availability.test.ts packages/plugins-base/test/async-local-principal-credentials.test.ts packages/plugins-base/test/tool-preconditions.test.ts && node --import tsx packages/adapter-deepseek/test/deepseek.test.ts && node --import tsx packages/adapter-openai/test/openai.test.ts && node --import tsx packages/adapter-mcp/test/mcp.test.ts && node --import tsx --test packages/adapter-mcp/test/*.test.ts && node --import tsx --test packages/agent-api/test/*.test.ts && node --import tsx packages/adapter-agent-profile-markdown/test/agent-profile.test.ts && node --import tsx packages/adapter-skills-markdown/test/markdown-skills.test.ts && node --import tsx packages/adapter-tool-broker-http/test/tool-broker.test.ts && node --import tsx packages/adapter-crypto-node/test/crypto.test.ts && node --import tsx packages/adapter-admission-redis/test/admission.test.ts && node --import tsx --test packages/adapter-admission-redis/test/topology.test.ts packages/redis-connection/test/*.test.ts packages/env-settings/test/*.test.ts && node --import tsx packages/adapter-telemetry-elk/test/elk.test.ts && node --import tsx packages/adapter-tracing-langfuse/test/langfuse.test.ts && node --import tsx packages/persistence-sqlserver/test/sqlserver.test.ts && node --import tsx apps/harness/test/runtime-config.test.ts && node --import tsx --test apps/harness/test/catalog-runtime-provider.test.ts apps/harness/test/catalog-composition.test.ts && node --import tsx --test apps/harness/test/judgment-provider.test.ts apps/harness/test/required-prompt-budget.test.ts && node --import tsx apps/harness/test/knowledge-loader.test.ts && node --import tsx apps/harness/test/persistence-composition.test.ts && node --import tsx apps/harness/test/product-plugins.test.ts && node --import tsx --test apps/harness/test/document-attachments.test.ts apps/harness/test/mcp-plugin-catalog.test.ts && node --import tsx apps/web/test/web.test.ts && node --import tsx apps/widget/test/widget.test.ts && node --import tsx --test apps/widget/test/activity-panel.test.ts && node --import tsx --test apps/widget/test/stream-end-to-end.test.ts && node --import tsx --test apps/widget/test/stream-markdown.test.ts && node --test scripts/check-test-reach.test.mjs scripts/comment-identity.test.mjs scripts/comment-gate.test.mjs && node --import tsx --test apps/widget/test/launcher-drag.test.ts && node --import tsx --test apps/widget/test/dock-push.test.ts && node --import tsx --test apps/widget/test/panel-layout.test.ts && node --import tsx --test apps/widget/test/theme.test.ts && node --import tsx --test apps/widget/test/conversation-scroll.test.ts && node --import tsx --test apps/widget/test/interjection.test.ts && node --import tsx --test apps/widget/test/attachment-paste.test.ts && node --import tsx --test apps/widget/test/transport-recovery.test.ts && node --import tsx --test apps/widget/test/connection-recovery.test.ts && node --import tsx --test apps/widget/test/host-interaction.test.ts apps/widget/test/session-id.test.ts && node --import tsx --test packages/contracts/test/turn-work.test.ts packages/contracts/test/core-event-validation.test.ts packages/persistence-memory/test/session-store.test.ts packages/persistence-memory/test/actor-setting-store.test.ts && node --import tsx --test packages/core/test/*.test.ts packages/persistence-redis/test/*.test.ts packages/persistence-mysql/test/keep-warm.test.ts packages/plugins-base/test/user-input-tool.test.ts && node --import tsx --test packages/adapter-gemini-speech/test/*.test.ts packages/adapter-typesafe/test/*.test.ts packages/adapter-calculation-quickjs/test/*.test.ts packages/plugins-base/test/judged-knowledge-service.test.ts packages/plugins-base/test/judged-auditor.test.ts packages/plugins-base/test/completion-gate.test.ts packages/plugins-base/test/answer-ending.test.ts packages/plugins-base/test/rank-candidates.test.ts packages/plugins-base/test/action-gate.test.ts packages/plugins-base/test/conditional-skills.test.ts packages/plugins-base/test/tools-load-tool.test.ts && node scripts/run-python.mjs -- mcp-servers/document-readers/selftest.py && node scripts/run-python.mjs -- mcp-servers/document-readers/selftest_layout.py && node scripts/run-python.mjs -- mcp-servers/document-readers/selftest_formats.py && node scripts/run-python.mjs -- mcp-servers/document-readers/selftest_diagnostics.py && node --test mcp-servers/document-readers/test/http.test.mjs && node --import tsx --test apps/widget/test/callout.test.ts && node --import tsx --test apps/widget/test/menu-toggles.test.ts apps/widget/test/escape-before-host.test.ts apps/widget/test/interaction-blank-form.test.ts apps/widget/test/markdown-fonts.test.ts apps/widget/test/table-view.test.ts apps/widget/test/session-navigation.test.ts apps/widget/test/link-target.test.ts apps/widget/test/host-page-layers.test.ts && node --import tsx --test packages/control-api/test/*.test.ts packages/persistence-memory/test/review-stores.test.ts scripts/diagnostic-error.test.ts && node --test examples/web3/web3.test.mjs",
+    "test": "npm run check && npm run build && npm run test:shared",
+    "package": "node scripts/package-source.mjs",
+    "mcp:documents": "node scripts/run-python.mjs -- mcp-servers/document-readers/http_server.py --local",
+    "demo:web3": "node --env-file-if-exists=.env examples/web3/run.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/pg": "^8.15.0",
+    "playwright-core": "^1.64.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0"
+  }
+}

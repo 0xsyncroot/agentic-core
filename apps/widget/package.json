@@ -1,0 +1,33 @@
+{
+  "name": "@0xsyncroot/chat-widget",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Framework-free embeddable chat widget for the Agentic agentic web harness",
+  "browser": "dist/agentic-chat-widget.js",
+  "types": "dist/agentic-chat-widget.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "INTEGRATION.md",
+    "demo.html",
+    "demo.css",
+    "demo.js"
+  ],
+  "scripts": {
+    "typecheck": "tsc -b --force tsconfig.json",
+    "bundle": "node build.mjs",
+    "build": "npm run typecheck --silent && npm run bundle --silent"
+  },
+  "devDependencies": {
+    "esbuild": "~0.28.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/agentic-chat-widget.d.ts",
+      "import": "./dist/agentic-chat-widget.esm.js",
+      "browser": "./dist/agentic-chat-widget.js",
+      "default": "./dist/agentic-chat-widget.js"
+    },
+    "./script": "./dist/agentic-chat-widget.js"
+  }
+}

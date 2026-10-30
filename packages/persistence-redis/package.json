@@ -1,0 +1,11 @@
+{
+  "name": "@0xsyncroot/persistence-redis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": { "@0xsyncroot/contracts": "0.1.0", "@0xsyncroot/redis-connection": "0.1.0" },
+  "devDependencies": { "@0xsyncroot/persistence-memory": "0.1.0", "redis": "^6.2.1" }
+}

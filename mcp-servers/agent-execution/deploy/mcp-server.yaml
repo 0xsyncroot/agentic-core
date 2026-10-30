@@ -1,0 +1,22 @@
+# Configure the endpoint and connector policy for the consuming application
+servers:
+  - id: office-docs
+    transport: http
+    endpoint: http://agent-execution:8080/mcp
+    filesEndpoint: http://agent-execution:8080/files
+    # Archive prefix owned by the consuming application
+    attachmentStorage:
+      s3EnvPrefix: S3                # the shared S3_* settings (retired: AGENTIC_KNOWLEDGE_S3_*)
+      keyPrefix: agentic-attachments/
+    allowInsecureInternal: true
+    authMode: service
+    tokenEnv: EXECUTION_SERVICE_TOKEN
+    failureMode: fail
+    timeoutMs: 75000
+    resources:
+      allowedSchemes: [document]
+    riskOverrides:
+      read_document: none
+      read_table: none
+      read_cells: none
+      read_resource: none

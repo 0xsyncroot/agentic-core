@@ -1,0 +1,333 @@
+{
+ "format": 1,
+ "window": {
+  "fromMs": 1791676800000,
+  "toMs": 1792404000000
+ },
+ "options": {
+  "maxSteps": "progressive",
+  "initialStepBudget": 4,
+  "stepBudgetExtension": 4,
+  "maxToolCalls": 64,
+  "turnTimeoutMs": 300000
+ },
+ "runs": [
+  {
+   "run": 1,
+   "group": 0,
+   "oracle": "unlabelled",
+   "start": 1,
+   "resume": "none",
+   "codeAge": 0,
+   "end": {
+    "kind": "end",
+    "status": "partial",
+    "reason": "stop",
+    "decision": "partial"
+   },
+   "steps": [
+    {
+     "i": 1,
+     "t": [
+      350,
+      1923
+     ],
+     "mode": "tools",
+     "calls": [
+      {
+       "tool": 58,
+       "state": "succeeded",
+       "dispatched": true,
+       "gain": "new"
+      }
+     ],
+     "answer": "silent",
+     "end": {
+      "status": "completed",
+      "reason": "tool-results"
+     },
+     "toolsOffered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      44,
+      45,
+      57,
+      58
+     ]
+    },
+    {
+     "i": 2,
+     "t": [
+      1935,
+      3601
+     ],
+     "mode": "tools",
+     "calls": [
+      {
+       "tool": 45,
+       "state": "succeeded",
+       "dispatched": true,
+       "gain": "new"
+      }
+     ],
+     "answer": "silent",
+     "end": {
+      "status": "completed",
+      "reason": "tool-results"
+     }
+    },
+    {
+     "i": 3,
+     "t": [
+      9000,
+      13500
+     ],
+     "mode": "tools",
+     "reviews": [
+      {
+       "phase": "terminal",
+       "decision": "continue",
+       "workRemains": true,
+       "delivered": true,
+       "feedback": 1,
+       "answer": 1,
+       "text": true,
+       "t": 13467
+      }
+     ],
+     "end": {
+      "status": "completed",
+      "reason": "turn-control-continue"
+     }
+    },
+    {
+     "i": 4,
+     "t": [
+      13520,
+      19600
+     ],
+     "mode": "tools",
+     "answer": "text",
+     "reviews": [
+      {
+       "phase": "terminal",
+       "decision": "accept",
+       "delivered": true,
+       "answer": 1,
+       "reason": "work-remains-unmoved",
+       "t": 19570
+      }
+     ],
+     "end": {
+      "status": "completed",
+      "reason": "stop"
+     }
+    }
+   ]
+  },
+  {
+   "run": 2,
+   "group": 0,
+   "oracle": "unlabelled",
+   "start": 1,
+   "resume": "none",
+   "codeAge": 0,
+   "end": {
+    "kind": "end",
+    "status": "partial",
+    "reason": "work-remains-unmoved",
+    "decision": "partial"
+   },
+   "steps": [
+    {
+     "i": 1,
+     "t": [
+      350,
+      1923
+     ],
+     "mode": "tools",
+     "calls": [
+      {
+       "tool": 58,
+       "state": "succeeded",
+       "dispatched": true,
+       "gain": "new"
+      }
+     ],
+     "answer": "silent",
+     "end": {
+      "status": "completed",
+      "reason": "tool-results"
+     },
+     "toolsOffered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      44,
+      45,
+      57,
+      58
+     ]
+    },
+    {
+     "i": 2,
+     "t": [
+      1935,
+      3601
+     ],
+     "mode": "tools",
+     "calls": [
+      {
+       "tool": 45,
+       "state": "succeeded",
+       "dispatched": true,
+       "gain": "new"
+      }
+     ],
+     "answer": "silent",
+     "end": {
+      "status": "completed",
+      "reason": "tool-results"
+     }
+    },
+    {
+     "i": 3,
+     "t": [
+      9000,
+      13500
+     ],
+     "mode": "tools",
+     "reviews": [
+      {
+       "phase": "terminal",
+       "decision": "continue",
+       "workRemains": true,
+       "feedback": 1,
+       "answer": 1,
+       "text": true,
+       "t": 13467
+      }
+     ],
+     "end": {
+      "status": "completed",
+      "reason": "turn-control-continue"
+     }
+    },
+    {
+     "i": 4,
+     "t": [
+      13520,
+      19600
+     ],
+     "mode": "tools",
+     "reviews": [
+      {
+       "phase": "terminal",
+       "decision": "close",
+       "workRemains": true,
+       "answer": 1,
+       "reason": "work-remains-unmoved",
+       "t": 19570
+      }
+     ],
+     "end": {
+      "status": "completed",
+      "reason": "work-remains-closing"
+     }
+    },
+    {
+     "i": 5,
+     "t": [
+      19620,
+      24500
+     ],
+     "mode": "final",
+     "answer": "text",
+     "reviews": [
+      {
+       "phase": "terminal",
+       "decision": "accept",
+       "answer": 2,
+       "reason": "work-remains-final-step",
+       "t": 24480
+      }
+     ],
+     "end": {
+      "status": "completed",
+      "reason": "stop"
+     }
+    }
+   ]
+  }
+ ],
+ "notMeasurable": []
+}

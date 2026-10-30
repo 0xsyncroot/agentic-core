@@ -1,0 +1,17 @@
+{
+  "name": "@0xsyncroot/agent-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./fastify": { "types": "./dist/fastify/index.d.ts", "import": "./dist/fastify/index.js" }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@0xsyncroot/contracts": "0.1.0",
+    "@0xsyncroot/plugins-base": "0.1.0",
+    "fastify": "^5.12.4"
+  }
+}

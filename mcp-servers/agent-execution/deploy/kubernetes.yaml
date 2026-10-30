@@ -1,0 +1,120 @@
+# Apply in the same namespace as the agent backends. Review image and backend labels first.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-execution
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: agent-execution
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: agent-execution
+    spec:
+      # Gateway drains in-flight reads for up to 25 s on SIGTERM.
+      terminationGracePeriodSeconds: 40
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: reader
+          image: agent-execution:local
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          env:
+            - name: EXECUTION_SERVICE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: agent-execution
+                  key: service-token
+            - name: EXECUTION_ALLOWED_HOSTS
+              value: localhost,127.0.0.1,agent-execution
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: "1.5"
+              memory: 2Gi
+          readinessProbe:
+            timeoutSeconds: 5
+            httpGet:
+              path: /healthz
+              port: http
+              httpHeaders:
+                - name: Host
+                  value: localhost
+          livenessProbe:
+            timeoutSeconds: 5
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: http
+              httpHeaders:
+                - name: Host
+                  value: localhost
+            initialDelaySeconds: 15
+          volumeMounts:
+            - name: files
+              mountPath: /var/execution-files
+            - name: temporary
+              mountPath: /tmp
+      volumes:
+        - name: files
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Mi
+        - name: temporary
+          emptyDir:
+            medium: Memory
+            sizeLimit: 16Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-execution
+spec:
+  selector:
+    app.kubernetes.io/name: agent-execution
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: agent-execution
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: agent-execution
+  policyTypes: [Ingress, Egress]
+  # No connections initiated by this service, including DNS, internet, agent or cluster API.
+  egress: []
+  ingress:
+    - from:
+        - podSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values: [agent-backend]
+      ports:
+        - protocol: TCP
+          port: 8080

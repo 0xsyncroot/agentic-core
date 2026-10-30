@@ -1,0 +1,41 @@
+{
+  "name": "@0xsyncroot/harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/bootstrap.d.ts",
+      "import": "./dist/bootstrap.js"
+    }
+  },
+  "dependencies": {
+    "@0xsyncroot/adapter-admission-redis": "0.1.0",
+    "@0xsyncroot/adapter-agent-profile-markdown": "0.1.0",
+    "@0xsyncroot/adapter-calculation-quickjs": "0.1.0",
+    "@0xsyncroot/adapter-crypto-node": "0.1.0",
+    "@0xsyncroot/adapter-deepseek": "0.1.0",
+    "@0xsyncroot/adapter-echo": "0.1.0",
+    "@0xsyncroot/adapter-gemini-speech": "0.1.0",
+    "@0xsyncroot/adapter-mcp": "0.1.0",
+    "@0xsyncroot/adapter-openai": "0.1.0",
+    "@0xsyncroot/adapter-s3": "0.1.0",
+    "@0xsyncroot/adapter-skills-markdown": "0.1.0",
+    "@0xsyncroot/adapter-telemetry-elk": "0.1.0",
+    "@0xsyncroot/adapter-tool-broker-http": "0.1.0",
+    "@0xsyncroot/adapter-tracing-langfuse": "0.1.0",
+    "@0xsyncroot/adapter-typesafe": "0.1.0",
+    "@0xsyncroot/contracts": "0.1.0",
+    "@0xsyncroot/core": "0.1.0",
+    "@0xsyncroot/env-settings": "0.1.0",
+    "@0xsyncroot/persistence-memory": "0.1.0",
+    "@0xsyncroot/persistence-mysql": "0.1.0",
+    "@0xsyncroot/persistence-redis": "0.1.0",
+    "@0xsyncroot/persistence-postgres": "0.1.0",
+    "@0xsyncroot/persistence-sqlserver": "0.1.0",
+    "@0xsyncroot/plugin-sdk": "0.1.0",
+    "@0xsyncroot/plugins-base": "0.1.0",
+    "@0xsyncroot/redis-connection": "0.1.0",
+    "yaml": "^2.9.0"
+  }
+}

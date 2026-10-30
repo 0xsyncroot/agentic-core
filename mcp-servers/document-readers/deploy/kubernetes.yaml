@@ -1,0 +1,159 @@
+# Apply in the same namespace as the agent backends. Stateless (documents come from S3), so it scales out.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: document-readers
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: document-readers
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: document-readers
+    spec:
+      terminationGracePeriodSeconds: 40   # drains in-flight reads for up to 25 s on SIGTERM
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: reader
+          image: document-readers:local
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          env:
+            - name: DOCUMENT_READERS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: document-readers
+                  key: service-token
+            - name: DOCUMENT_READERS_ALLOWED_HOSTS
+              value: localhost,127.0.0.1,document-readers
+            # Overload bounds: running + waiting calls beyond this answer "busy" at once.
+            # Read-only access to the attachment archive (the shared S3_* names); the backend keeps writing to it.
+            - name: DOCUMENT_S3_PREFIX
+              value: agentic-attachments/
+            - name: S3_ENDPOINT
+              valueFrom: { secretKeyRef: { name: document-readers, key: s3-endpoint } }
+            - name: S3_BUCKET
+              valueFrom: { secretKeyRef: { name: document-readers, key: s3-bucket } }
+            - name: S3_ACCESS_KEY
+              valueFrom: { secretKeyRef: { name: document-readers, key: s3-access-key } }
+            - name: S3_SECRET_KEY
+              valueFrom: { secretKeyRef: { name: document-readers, key: s3-secret-key } }
+            - name: DOCUMENT_READERS_WORKERS
+              value: "2"
+            - name: DOCUMENT_READERS_MAX_OUTSTANDING
+              value: "8"
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: "1.5"
+              memory: 1Gi
+          readinessProbe:            # saturated -> 503 -> removed from Service endpoints until drained
+            httpGet:
+              path: /readyz
+              port: http
+              httpHeaders:
+                - name: Host
+                  value: localhost
+            periodSeconds: 5
+            timeoutSeconds: 3
+          livenessProbe:             # answers while parsing; a wedged parser exits the process itself
+            httpGet:
+              path: /healthz
+              port: http
+              httpHeaders:
+                - name: Host
+                  value: localhost
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          volumeMounts:
+            - name: temporary
+              mountPath: /tmp
+      volumes:
+        - name: temporary
+          emptyDir:
+            medium: Memory
+            sizeLimit: 16Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: document-readers
+spec:
+  selector:
+    app.kubernetes.io/name: document-readers
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: document-readers
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: document-readers
+  policyTypes: [Ingress, Egress]
+  # Only the object store (and DNS to resolve it). Replace the CIDR/port with the real S3 endpoint.
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 10.0.0.0/8
+      ports:
+        - protocol: TCP
+          port: 443
+        - protocol: TCP
+          port: 9000
+    - to:
+        - namespaceSelector: {}
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - protocol: UDP
+          port: 53
+  ingress:
+    - from:
+        - podSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values: [agent-backend]
+      ports:
+        - protocol: TCP
+          port: 8080
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: document-readers
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: document-readers

@@ -1,0 +1,21 @@
+{
+  "name": "@0xsyncroot/persistence-postgres",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@0xsyncroot/contracts": "0.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@0xsyncroot/adapter-crypto-node": "0.1.0"
+  }
+}

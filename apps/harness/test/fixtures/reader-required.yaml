@@ -1,0 +1,18 @@
+servers:
+  - id: office-docs
+    transport: http
+    endpoint: https://documents.example/mcp
+    authMode: service
+    tokenEnv: DOCUMENT_READERS_TOKEN
+    timeoutMs: 75000
+    failureMode: fail
+    attachmentStorage:
+      s3EnvPrefix: S3
+      keyPrefix: required-attachments/
+    resources:
+      enabled: true
+      allowedSchemes: [document]
+    riskOverrides:
+      read_document: none
+      read_table: none
+      read_cells: none

@@ -1,0 +1,1753 @@
+{
+ "model": "decide",
+ "byClass": {
+  "answer": {
+   "runs": 281,
+   "reproduced": 279,
+   "explained": 1,
+   "unexplained": 1,
+   "notMeasurable": 0
+  },
+  "failed": {
+   "runs": 16,
+   "reproduced": 14,
+   "explained": 2,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "limit": {
+   "runs": 0,
+   "reproduced": 0,
+   "explained": 0,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "partial-answer": {
+   "runs": 11,
+   "reproduced": 11,
+   "explained": 0,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "pause": {
+   "runs": 579,
+   "reproduced": 577,
+   "explained": 1,
+   "unexplained": 1,
+   "notMeasurable": 0
+  },
+  "progress-stalled": {
+   "runs": 27,
+   "reproduced": 25,
+   "explained": 2,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "step-failure": {
+   "runs": 6,
+   "reproduced": 6,
+   "explained": 0,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "turn-control-fallback": {
+   "runs": 0,
+   "reproduced": 0,
+   "explained": 0,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "work-remains-unmoved": {
+   "runs": 31,
+   "reproduced": 10,
+   "explained": 20,
+   "unexplained": 1,
+   "notMeasurable": 0
+  }
+ },
+ "byOracle": {
+  "correct": {
+   "runs": 47,
+   "reproduced": 47,
+   "explained": 0,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "stuck": {
+   "runs": 4,
+   "reproduced": 4,
+   "explained": 0,
+   "unexplained": 0,
+   "notMeasurable": 0
+  },
+  "unlabelled": {
+   "runs": 900,
+   "reproduced": 871,
+   "explained": 26,
+   "unexplained": 3,
+   "notMeasurable": 0
+  }
+ },
+ "labelledNotJoined": 44,
+ "divergences": [
+  {
+   "run": 202,
+   "stopClass": "answer",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 18,
+   "differs": [
+    "review",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "review": {
+     "decision": "continue"
+    },
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "tools",
+    "review": {
+     "decision": "close",
+     "reason": "work-remains-unmoved"
+    },
+    "next": {
+     "kind": "close",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "objection-bound-before-c9eec11"
+  },
+  {
+   "run": 262,
+   "stopClass": "pause",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 17,
+   "differs": [
+    "mode"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "cause": "batch-accounting-before-c9eec11",
+   "later": {
+    "k": 39,
+    "differs": [
+     "mode",
+     "review"
+    ]
+   }
+  },
+  {
+   "run": 286,
+   "stopClass": "failed",
+   "oracle": "unlabelled",
+   "codeAge": 10,
+   "outcome": "explained",
+   "k": 10,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "failed",
+     "code": "budget-exceeded"
+    }
+   },
+   "decided": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "cause": "turn-signal-not-journaled"
+  },
+  {
+   "run": 288,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 32,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 310,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 16,
+   "differs": [
+    "review",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "review": {
+     "decision": "continue"
+    },
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "tools",
+    "review": {
+     "decision": "close",
+     "reason": "work-remains-unmoved"
+    },
+    "next": {
+     "kind": "close",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "objection-bound-before-c9eec11"
+  },
+  {
+   "run": 312,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 20,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 315,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 14,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 334,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 48,
+   "differs": [
+    "mode",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "step-limit",
+    "next": {
+     "kind": "failed",
+     "code": "permanent"
+    }
+   },
+   "cause": "numeric-step-ceiling"
+  },
+  {
+   "run": 391,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 11,
+   "outcome": "explained",
+   "k": 14,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 409,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 11,
+   "outcome": "explained",
+   "k": 9,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 410,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 11,
+   "outcome": "explained",
+   "k": 8,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 412,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 22,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 413,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 21,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 435,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 24,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 436,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 13,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 441,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 19,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 442,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 9,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 560,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 31,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 562,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 14,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 618,
+   "stopClass": "progress-stalled",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 20,
+   "differs": [
+    "review",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "review": {
+     "decision": "continue"
+    },
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "tools",
+    "review": {
+     "decision": "close",
+     "reason": "work-remains-unmoved"
+    },
+    "next": {
+     "kind": "close",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "objection-bound-before-c9eec11"
+  },
+  {
+   "run": 631,
+   "stopClass": "pause",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "unexplained",
+   "k": 16,
+   "differs": [
+    "mode",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "next": {
+     "kind": "failed",
+     "code": "permanent"
+    }
+   }
+  },
+  {
+   "run": 723,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 11,
+   "outcome": "explained",
+   "k": 10,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 737,
+   "stopClass": "failed",
+   "oracle": "unlabelled",
+   "codeAge": 9,
+   "outcome": "explained",
+   "k": 1,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "failed",
+     "code": "budget-exceeded"
+    }
+   },
+   "decided": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "cause": "turn-signal-not-journaled"
+  },
+  {
+   "run": 747,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 31,
+   "differs": [
+    "next"
+   ],
+   "recorded": {
+    "mode": "final",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "reason": "work-remains-unmoved",
+     "decision": "budget-reached"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "work-remains-unmoved",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "end",
+     "status": "partial",
+     "decision": "partial",
+     "reason": "work-remains-unmoved"
+    }
+   },
+   "cause": "work-closing-decision-before-c3e7697"
+  },
+  {
+   "run": 748,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "unexplained",
+   "k": 9,
+   "differs": [
+    "mode",
+    "review"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "review": {
+     "decision": "continue"
+    },
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "review": {
+     "decision": "accept",
+     "reason": "work-remains-final-step"
+    },
+    "next": {
+     "kind": "continue"
+    }
+   }
+  },
+  {
+   "run": 834,
+   "stopClass": "progress-stalled",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 19,
+   "differs": [
+    "mode",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "next": {
+     "kind": "failed",
+     "code": "permanent"
+    }
+   },
+   "cause": "batch-accounting-before-c9eec11"
+  },
+  {
+   "run": 877,
+   "stopClass": "answer",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "unexplained",
+   "k": 13,
+   "differs": [
+    "mode"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "next": {
+     "kind": "continue"
+    }
+   }
+  },
+  {
+   "run": 942,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 16,
+   "differs": [
+    "mode",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "next": {
+     "kind": "failed",
+     "code": "permanent"
+    }
+   },
+   "cause": "batch-accounting-before-c9eec11",
+   "later": {
+    "k": 32,
+    "differs": [
+     "next"
+    ]
+   }
+  },
+  {
+   "run": 943,
+   "stopClass": "work-remains-unmoved",
+   "oracle": "unlabelled",
+   "codeAge": 12,
+   "outcome": "explained",
+   "k": 7,
+   "differs": [
+    "mode",
+    "next"
+   ],
+   "recorded": {
+    "mode": "tools",
+    "next": {
+     "kind": "continue"
+    }
+   },
+   "decided": {
+    "mode": "final",
+    "reason": "progress-stalled",
+    "next": {
+     "kind": "failed",
+     "code": "permanent"
+    }
+   },
+   "cause": "batch-accounting-before-c9eec11",
+   "later": {
+    "k": 45,
+    "differs": [
+     "next"
+    ]
+   }
+  }
+ ],
+ "versusLegacy": {
+  "byClass": {
+   "answer": {
+    "runs": 281,
+    "same": 281,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "failed": {
+    "runs": 16,
+    "same": 16,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "limit": {
+    "runs": 0,
+    "same": 0,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "partial-answer": {
+    "runs": 11,
+    "same": 11,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "pause": {
+    "runs": 579,
+    "same": 579,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "progress-stalled": {
+    "runs": 27,
+    "same": 27,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "step-failure": {
+    "runs": 6,
+    "same": 0,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 6
+   },
+   "turn-control-fallback": {
+    "runs": 0,
+    "same": 0,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "work-remains-unmoved": {
+    "runs": 31,
+    "same": 30,
+    "earlier": 1,
+    "later": 0,
+    "relabelled": 0
+   }
+  },
+  "byOracle": {
+   "correct": {
+    "runs": 47,
+    "same": 47,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "stuck": {
+    "runs": 4,
+    "same": 4,
+    "earlier": 0,
+    "later": 0,
+    "relabelled": 0
+   },
+   "unlabelled": {
+    "runs": 900,
+    "same": 893,
+    "earlier": 1,
+    "later": 0,
+    "relabelled": 6
+   }
+  },
+  "shifted": [
+   {
+    "run": 334,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "shift": "earlier",
+    "k": 48,
+    "base": {
+     "mode": "tools",
+     "next": {
+      "kind": "continue"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-limit",
+     "next": {
+      "kind": "failed",
+      "code": "permanent"
+     }
+    }
+   },
+   {
+    "run": 509,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "shift": "relabelled",
+    "k": 7,
+    "base": {
+     "mode": "final",
+     "reason": "step-failure (permanent)",
+     "review": {
+      "decision": "accept",
+      "reason": "work-remains-final-step"
+     },
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "decision": "budget-reached",
+      "reason": "step-failure (permanent)"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-failure:permanent",
+     "review": {
+      "decision": "accept",
+      "reason": "work-remains-final-step"
+     },
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "decision": "budget-reached",
+      "reason": "step-failure:permanent"
+     }
+    }
+   },
+   {
+    "run": 561,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "shift": "relabelled",
+    "k": 8,
+    "base": {
+     "mode": "final",
+     "reason": "step-failure (permanent)",
+     "review": {
+      "decision": "accept",
+      "reason": "work-remains-final-step"
+     },
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "decision": "budget-reached",
+      "reason": "step-failure (permanent)"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-failure:permanent",
+     "review": {
+      "decision": "accept",
+      "reason": "work-remains-final-step"
+     },
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "decision": "budget-reached",
+      "reason": "step-failure:permanent"
+     }
+    }
+   },
+   {
+    "run": 632,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "shift": "relabelled",
+    "k": 3,
+    "base": {
+     "mode": "final",
+     "reason": "step-failure (transient)",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-failure:transient",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    }
+   },
+   {
+    "run": 633,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "shift": "relabelled",
+    "k": 3,
+    "base": {
+     "mode": "final",
+     "reason": "step-failure (transient)",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-failure:transient",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    }
+   },
+   {
+    "run": 634,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "shift": "relabelled",
+    "k": 3,
+    "base": {
+     "mode": "final",
+     "reason": "step-failure (transient)",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-failure:transient",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    }
+   },
+   {
+    "run": 635,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "shift": "relabelled",
+    "k": 3,
+    "base": {
+     "mode": "final",
+     "reason": "step-failure (transient)",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    },
+    "changed": {
+     "mode": "final",
+     "reason": "step-failure:transient",
+     "next": {
+      "kind": "end",
+      "status": "partial",
+      "reason": "step-failure:transient",
+      "decision": "partial"
+     }
+    }
+   }
+  ]
+ },
+ "cards": {
+  "byClass": {
+   "answer": {
+    "runs": 281,
+    "ended": 281,
+    "partial": 1,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "failed": {
+    "runs": 16,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "limit": {
+    "runs": 0,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "partial-answer": {
+    "runs": 11,
+    "ended": 11,
+    "partial": 11,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "pause": {
+    "runs": 579,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "progress-stalled": {
+    "runs": 27,
+    "ended": 25,
+    "partial": 25,
+    "cards": 17,
+    "undone": 17,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "step-failure": {
+    "runs": 6,
+    "ended": 6,
+    "partial": 6,
+    "cards": 1,
+    "undone": 1,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "turn-control-fallback": {
+    "runs": 0,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "work-remains-unmoved": {
+    "runs": 31,
+    "ended": 28,
+    "partial": 28,
+    "cards": 15,
+    "undone": 15,
+    "shown": 0,
+    "noPlan": 0
+   }
+  },
+  "byOracle": {
+   "correct": {
+    "runs": 47,
+    "ended": 10,
+    "partial": 2,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "stuck": {
+    "runs": 4,
+    "ended": 2,
+    "partial": 2,
+    "cards": 2,
+    "undone": 2,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "unlabelled": {
+    "runs": 900,
+    "ended": 339,
+    "partial": 67,
+    "cards": 31,
+    "undone": 31,
+    "shown": 0,
+    "noPlan": 0
+   }
+  },
+  "byStatus": {
+   "awaiting_approval": {
+    "runs": 398,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "awaiting_interaction": {
+    "runs": 181,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "completed": {
+    "runs": 281,
+    "ended": 281,
+    "partial": 1,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "failed": {
+    "runs": 16,
+    "ended": 0,
+    "partial": 0,
+    "cards": 0,
+    "undone": 0,
+    "shown": 0,
+    "noPlan": 0
+   },
+   "partial": {
+    "runs": 75,
+    "ended": 70,
+    "partial": 70,
+    "cards": 33,
+    "undone": 33,
+    "shown": 0,
+    "noPlan": 0
+   }
+  },
+  "asked": [
+   {
+    "run": 58,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 71,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 261,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 288,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 293,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 294,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 298,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 312,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 315,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 358,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 369,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 409,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 410,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 412,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 413,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 435,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 437,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 441,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 442,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 457,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 458,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 551,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "stuck",
+    "status": "partial"
+   },
+   {
+    "run": 560,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 561,
+    "stopClass": "step-failure",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 601,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 608,
+    "stopClass": "progress-stalled",
+    "oracle": "stuck",
+    "status": "partial"
+   },
+   {
+    "run": 712,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 723,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 748,
+    "stopClass": "work-remains-unmoved",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 776,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 797,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 833,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   },
+   {
+    "run": 946,
+    "stopClass": "progress-stalled",
+    "oracle": "unlabelled",
+    "status": "partial"
+   }
+  ]
+ }
+}

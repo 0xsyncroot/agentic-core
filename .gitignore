@@ -1,0 +1,39 @@
+# Dependencies and generated output
+node_modules/
+dist/
+dist-package/
+# Exported Docker image archives are deployment artifacts, not source.
+/artifacts/docker-images/
+coverage/
+*.tsbuildinfo
+*.log
+
+# Local secrets. The committed template remains visible.
+.env
+.env.*
+# The two templates carry no secrets and are the deployment contract, so they ship. Anything
+# else matching .env.* is a real environment file and stays out.
+!.env.example
+!.env.production.example
+
+# Local agent/index state; rebuild it on each developer machine.
+.agents/
+.codex/
+.codegraph/
+.codewiki/
+
+# Editors, operating systems and temporary files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.tmp
+*.bak
+
+# Python build artifacts (the document MCP server runs from source)
+__pycache__/
+*.py[cod]
+
+# Development-only attachment folder (AGENTIC_ATTACHMENTS_DIR)
+.local/
