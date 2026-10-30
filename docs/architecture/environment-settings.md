@@ -14,6 +14,20 @@ Use `.env.example` for the local demo. It selects Echo, in-memory storage and an
 
 Configuration is read in composition/delivery and passed to adapters. Persistence migration CLIs and filtered stdio environment forwarding are explicit existing exceptions
 
-Judgment uses the TypeSafe adapter when its key is configured, or when `AGENTIC_JUDGMENT_PROVIDER=typesafe` is explicitly selected. Use `none` to disable it
+## Optional typed judgments
+
+Chat and judgment providers are configured independently. Judgment uses the TypeSafe adapter when its key is configured, or when `AGENTIC_JUDGMENT_PROVIDER=typesafe` is explicitly selected. Use `none` to disable it
+
+To evaluate core judgments with TypeSafe, add these settings to your ignored `.env`:
+
+```dotenv
+AGENTIC_JUDGMENT_PROVIDER=typesafe
+TYPESAFE_API_KEY=your-key
+AGENTIC_JUDGMENT_MODE=shadow
+```
+
+The adapter defaults to `jev-1.13.0`. Shadow mode records core judgment-seam decisions for evaluation; explicit judgment tools such as `rank_candidates` still return their normal results. Evaluate questions and thresholds against your product's own cases before enabling live core decisions
+
+## Credentials
 
 Credentials must remain in ignored local files or a deployment secret store. Settings warnings name variables rather than values. Do not put keys in browser configuration, examples, test output or committed source
